@@ -8,18 +8,18 @@ public class DinnerConstructor {
     Random random = new Random();
     HashMap<String, ArrayList<String>> menu = new HashMap<>();
 
-    void addCourse(String dishType, String dishName) {
+    public void addCourse(String dishType, String dishName) {
         if (!menu.containsKey(dishType)) {
             menu.put(dishType, new ArrayList<>());
         }
         menu.get(dishType).add(dishName);
     }
 
-    boolean checkType(String type) {
+    public boolean checkType(String type) {
         return menu.containsKey(type);
     }
 
-    ArrayList<ArrayList<String>> generateCombines(ArrayList<String> types, int count) {
+    public ArrayList<ArrayList<String>> generateCombines(ArrayList<String> types, int count) {
         ArrayList<ArrayList<String>> combos = new ArrayList<>();
 
         for (int i = 0; i < count; i++) {

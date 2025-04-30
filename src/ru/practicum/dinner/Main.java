@@ -5,11 +5,11 @@ import java.util.Scanner;
 
 public class Main {
 
-    static DinnerConstructor dc;
-    static Scanner scanner;
+    public static DinnerConstructor dinnerConstructor;
+    public static Scanner scanner;
 
     public static void main(String[] args) {
-        dc = new DinnerConstructor();
+        dinnerConstructor = new DinnerConstructor();
         scanner = new Scanner(System.in);
 
         while (true) {
@@ -42,7 +42,7 @@ public class Main {
         System.out.println("Введите название блюда:");
         String dishName = scanner.nextLine();
 
-        dc.addCourse(dishType, dishName);
+        dinnerConstructor.addCourse(dishType, dishName);
         System.out.println("Блюдо \"" + dishName + "\" добавлено как \"" + dishType + "\".");
     }
 
@@ -59,7 +59,7 @@ public class Main {
 
         //реализуйте ввод типов блюд
         while (!(nextItem = scanner.nextLine()).isEmpty()) {
-            if (!dc.checkType(nextItem)) {
+            if (!dinnerConstructor.checkType(nextItem)) {
                 System.out.println("Тип блюда '" + nextItem + "' не найден. Попробуйте снова.");
                 continue;
             }
@@ -71,7 +71,7 @@ public class Main {
             return;
         }
 
-        ArrayList<ArrayList<String>> combos = dc.generateCombines(types, numberOfCombos);
+        ArrayList<ArrayList<String>> combos = dinnerConstructor.generateCombines(types, numberOfCombos);
 
         System.out.println("Сгенерированные комбинации:");
         for (int i = 0; i < combos.size(); i++) {
